@@ -3,8 +3,8 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>496</x>
-      <y>64</y>
+      <x>504</x>
+      <y>0</y>
       <w>248</w>
       <h>200</h>
     </coordinates>
@@ -28,16 +28,16 @@ Compte
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>80</x>
-      <y>384</y>
-      <w>208</w>
-      <h>168</h>
+      <x>88</x>
+      <y>320</y>
+      <w>224</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Compte_Courant
 --
 - decouvert : double
 - aggio : double
-
+- nom_fichier : string
 --
 +Compte_Courant()
 +Compte_Courant(double,double)
@@ -47,15 +47,16 @@ Compte
 +CalculAggios() : double
 +AppliquerAggios() : double
 +~Compte_Courant()
-
+-Imprimer_Action(string, double) : void
+-Imprimer_Ticket() : void
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>312</x>
-      <y>384</y>
+      <x>320</x>
+      <y>320</y>
       <w>200</w>
       <h>128</h>
     </coordinates>
@@ -74,25 +75,30 @@ Compte
   <element>
     <type>com.umlet.element.Note</type>
     <coordinates>
-      <x>8</x>
-      <y>296</y>
+      <x>152</x>
+      <y>520</y>
       <w>136</w>
-      <h>88</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>Note..
 bg=blue
-Reste l'accès aux 10
-dernières actions
-à déterminer
-peut-être avec
-les fichiers</panel_attributes>
+Imprimer_Ticket:
+permet d'afficher 
+les 10 dernières
+actions. Pour cela,
+toutes les actions 
+seront enregistrées
+avec Imprimer_Action()
+dans un fichier
+appelé "nom_fichier"
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>104</x>
-      <y>72</y>
+      <x>112</x>
+      <y>8</y>
       <w>168</w>
       <h>104</h>
     </coordinates>
@@ -110,8 +116,8 @@ les fichiers</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>248</x>
-      <y>88</y>
+      <x>256</x>
+      <y>24</y>
       <w>264</w>
       <h>56</h>
     </coordinates>
@@ -124,8 +130,8 @@ Posède&gt;</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>528</x>
-      <y>384</y>
+      <x>536</x>
+      <y>320</y>
       <w>208</w>
       <h>112</h>
     </coordinates>
@@ -142,8 +148,8 @@ restant avant l'utilisation du compte</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>752</x>
-      <y>384</y>
+      <x>760</x>
+      <y>320</y>
       <w>168</w>
       <h>136</h>
     </coordinates>
@@ -163,10 +169,10 @@ restant avant l'utilisation du compte</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>944</x>
-      <y>384</y>
+      <x>952</x>
+      <y>320</y>
       <w>168</w>
-      <h>152</h>
+      <h>112</h>
     </coordinates>
     <panel_attributes>E_Compte
 --
@@ -182,8 +188,8 @@ restant avant l'utilisation du compte</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>208</x>
-      <y>232</y>
+      <x>216</x>
+      <y>168</y>
       <w>304</w>
       <h>168</h>
     </coordinates>
@@ -195,8 +201,8 @@ m2= 1</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>440</x>
-      <y>240</y>
+      <x>448</x>
+      <y>176</y>
       <w>96</w>
       <h>160</h>
     </coordinates>
@@ -208,8 +214,8 @@ m2= 1</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>592</x>
-      <y>240</y>
+      <x>600</x>
+      <y>176</y>
       <w>40</w>
       <h>160</h>
     </coordinates>
@@ -221,8 +227,8 @@ m2=  1</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>688</x>
-      <y>240</y>
+      <x>696</x>
+      <y>176</y>
       <w>160</w>
       <h>160</h>
     </coordinates>
@@ -234,8 +240,8 @@ m2=1</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>720</x>
-      <y>224</y>
+      <x>728</x>
+      <y>160</y>
       <w>280</w>
       <h>176</h>
     </coordinates>
@@ -248,8 +254,8 @@ m2=1
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>976</x>
-      <y>72</y>
+      <x>984</x>
+      <y>8</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -270,8 +276,8 @@ m2=1
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>720</x>
-      <y>88</y>
+      <x>728</x>
+      <y>24</y>
       <w>272</w>
       <h>56</h>
     </coordinates>
