@@ -14,6 +14,7 @@ Compte
 # id: int
 # solde : double
 # date_ouverture : Date
+# Client : Client
 --
 +Compte()
 +Compte(int, double)
