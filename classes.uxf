@@ -13,6 +13,7 @@ Compte
 --
 # id: int
 # solde : double
+# date_ouverture : Date
 --
 +Compte()
 +Compte(int, double)
@@ -133,7 +134,6 @@ Posède&gt;</panel_attributes>
 - Taux_interet : double
 - Duree_blocage : int //en mois
 - Duree_ouverture : int //en mois
-- Date_ouverture : int
 --
 + Temps_Restant() // temps
 restant avant l'utilisation du compte</panel_attributes>
@@ -175,8 +175,7 @@ restant avant l'utilisation du compte</panel_attributes>
 --
 + Ajouter()
 + Retrait()
-+ Retrait()
-+ Cloturer()
+
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -263,7 +262,9 @@ m2=1
 + Afficher()
  operator+(int)
  operator=()
- operator&lt;&lt;()</panel_attributes>
+ operator&lt;&lt;()
+ operator&lt;()
+ operator==()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
