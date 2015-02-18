@@ -110,12 +110,15 @@ les fichiers</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>248</x>
-      <y>104</y>
+      <y>88</y>
       <w>264</w>
-      <h>40</h>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>248;24;24;24</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0..5
+m2=1
+Posède&gt;</panel_attributes>
+    <additional_attributes>248;40;24;40</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -185,7 +188,9 @@ restant avant l'utilisation du compte</panel_attributes>
       <w>304</w>
       <h>168</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+m1= 1
+m2= 1</panel_attributes>
     <additional_attributes>288;24;24;152</additional_attributes>
   </element>
   <element>
@@ -196,7 +201,9 @@ restant avant l'utilisation du compte</panel_attributes>
       <w>96</w>
       <h>160</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+m1= 1
+m2= 1</panel_attributes>
     <additional_attributes>80;24;24;144</additional_attributes>
   </element>
   <element>
@@ -207,7 +214,9 @@ restant avant l'utilisation du compte</panel_attributes>
       <w>40</w>
       <h>160</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+m1=  1
+m2=  1</panel_attributes>
     <additional_attributes>24;24;24;144</additional_attributes>
   </element>
   <element>
@@ -218,7 +227,9 @@ restant avant l'utilisation du compte</panel_attributes>
       <w>160</w>
       <h>160</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
     <additional_attributes>24;24;144;144</additional_attributes>
   </element>
   <element>
@@ -226,11 +237,14 @@ restant avant l'utilisation du compte</panel_attributes>
     <coordinates>
       <x>720</x>
       <y>224</y>
-      <w>312</w>
+      <w>280</w>
       <h>176</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>24;24;296;160</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>24;24;264;160</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -256,11 +270,14 @@ restant avant l'utilisation du compte</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>720</x>
-      <y>104</y>
+      <y>88</y>
       <w>272</w>
-      <h>40</h>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>24;24;256;24</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1
+&lt;Appartient</panel_attributes>
+    <additional_attributes>24;40;256;40</additional_attributes>
   </element>
 </diagram>
