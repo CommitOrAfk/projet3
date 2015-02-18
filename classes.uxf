@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="11.3">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>496</x>
+      <y>64</y>
+      <w>248</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+Compte
+--
+- id: long
+- solde : double
+--
++Compte()
++Compte(long,string,string,string,double)
+/+~Compte()/
+/+Afficher()/
+/+ChangerCoordonnees(): void/
+/+Consulter(): void/
+/+Cloturer()/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>80</x>
+      <y>384</y>
+      <w>208</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Compte_Courant
+--
+- decouvert : double
+- aggio : double
+
+--
++Compte_Courant()
++Compte_Courant(double,double)
++AjouterArgent() : void
++RetirerArgent() : void
++SeuilAlerte() : void
++CalculAggios() : double
++AppliquerAggios() : double
++~Compte_Courant()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>312</x>
+      <y>384</y>
+      <w>200</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Livret_Epargne
+--
+taux_remuneration : double
+plafond : double
+--
++Livret_Epargne()
++Livret_Epargne(double,double)
++Ajouter() : void
++CalculInteret() : double
++~Livret_Epargne()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>8</x>
+      <y>296</y>
+      <w>136</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Note..
+bg=blue
+Reste l'accès aux 10
+dernières actions
+à déterminer
+peut-être avec
+les fichiers</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>104</x>
+      <y>72</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Client
+--
+# Identifiant : int
+# Code_Secret : int
+# Nom : string
+# Prenom : string
+# Adresse : string
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>248</x>
+      <y>104</y>
+      <w>264</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>248;24;24;24</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>528</x>
+      <y>384</y>
+      <w>208</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Compte_Bloque
+--
+- Taux_interet : double
+- Duree_blocage : int //en mois
+- Duree_ouverture : int //en mois
+- Date_ouverture : int
+--
++ Temps_Restant() // temps
+restant avant l'utilisation du compte</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>752</x>
+      <y>384</y>
+      <w>168</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>PEL
+--
+- taux_emprunt : double
+- mois_ecoule : int
+--
++ Montant_Emprunt()
++ Temps_Restant_Emprunt()
++ Modifier_montant()
++ Versement_exceptionnel()
++ Consulter_temps_avant_emprunt()
++ Consulter_emprunt()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>944</x>
+      <y>384</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>E_Compte
+--
+- mail : string
+- telephone : string
+--
++ Ajouter()
++ Retrait()
++ Retrait()
++ Cloturer()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>208</x>
+      <y>232</y>
+      <w>304</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>288;24;24;152</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>440</x>
+      <y>240</y>
+      <w>96</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>80;24;24;144</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>592</x>
+      <y>240</y>
+      <w>40</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;24;144</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>688</x>
+      <y>240</y>
+      <w>160</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;144;144</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>720</x>
+      <y>224</y>
+      <w>312</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;296;160</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>976</x>
+      <y>72</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>Date
+--
+# jour : int
+# mois : int
+# annee : int
+--
++ Afficher()
+ operator+(int)
+ operator=()
+ operator&lt;&lt;()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>720</x>
+      <y>104</y>
+      <w>272</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>24;24;256;24</additional_attributes>
+  </element>
+</diagram>
