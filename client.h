@@ -1,6 +1,5 @@
-/** client.h work in progress
-**/
 #include <iostream>
+#include <ostream>
 #include <string>
 
 #ifndef CLIENT_H
@@ -16,7 +15,16 @@ protected:
     string adresse;
 
     public:
+        // constructeurs/destructeur
         Client();
         Client(int id = 0, int code = 0, string nom = "noname", string prenom = "noprenom", string adresse = "noadresse");
+        ~Client(){}
+        // fonctions membres
+        void Afficher(ostream &out) const;
+        void Saisir(istream &in);
 };
+
+ostream &operator<<(ostream &out, const Client &C);
+istream &operator>>(istream &in, Client &C);
+
 #endif // CLIENT_H
