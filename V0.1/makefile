@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-#Makefile test Date
-=======
-#Variables
-EXEC = main
-ARGS = -Wall -Wextra -pedantic
->>>>>>> origin/master
 
 
 main.out: date.o client.o compte.o main.cpp
