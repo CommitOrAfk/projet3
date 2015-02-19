@@ -16,6 +16,7 @@ protected:
     //Client ClientCompte(111, 0000, "nom", "prenom", "adresse");
     Date DateOuverture;
     Client ClientCompte;
+    bool isOpen;
 
 public:
     // constructeurs/destructeur
@@ -24,8 +25,9 @@ public:
     virtual ~Compte();
     void Afficher();
     void ChangerCoordonnes();
-    void Consulter();
+    double Consulter();
     void Cloturer();
+    bool EstOuvert();
     // fonctions membres
 
 };

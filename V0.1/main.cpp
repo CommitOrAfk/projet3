@@ -33,6 +33,8 @@ C1.Afficher(cout);*/
 Compte Co1(111, 1234.56);
 Co1.Afficher();
 Co1.ChangerCoordonnes();
+Co1.Cloturer();
+Co1.Afficher(); //ne marche pas car le compte est cloturé!
 
 return 0;
 }
