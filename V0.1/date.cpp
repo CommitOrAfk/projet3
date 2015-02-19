@@ -56,7 +56,7 @@ void Date::Saisir(istream &in)
     do
     {
     cout << "Saisissez le jour: " <<endl;
-    cin >> jour;
+    in >> jour;
         if((jour < 1) || (jour > 31))
         cout << "Saisie incorrecte!" <<endl;
     }while((jour<1) || (jour > 31));
@@ -64,7 +64,7 @@ void Date::Saisir(istream &in)
     do
     {
     cout << "Saisissez le mois: " <<endl;
-    cin >> mois;
+    in >> mois;
         if((mois < 1) || (mois > 12))
         cout << "Saisie incorrecte!" <<endl;
     }while((mois < 1) || (mois > 12));
@@ -72,7 +72,7 @@ void Date::Saisir(istream &in)
     do
     {
     cout << "Saisissez l annee: " <<endl;
-    cin >> annee;
+    in >> annee;
         if((annee < 1) || (annee > 9999))
         cout << "Saisie incorrecte!" <<endl;
     }while((annee < 1) || (annee > 9999));
@@ -130,6 +130,7 @@ bool Date::operator<(const Date &D)
         cout << "La date n est pas plus ancienne."  << endl;
         return false;
     }
+    return false;
 }
 
 bool Date::operator==(const Date &D)
