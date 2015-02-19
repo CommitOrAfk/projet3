@@ -2,7 +2,7 @@
 #Makefile test Date
 =======
 #Variables
-EXEC = main
+EXEC = minizoo
 ARGS = -Wall -Wextra -pedantic
 >>>>>>> origin/master
 
