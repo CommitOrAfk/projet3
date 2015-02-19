@@ -22,6 +22,7 @@ public:
     ~Date();
     // fonctions membres
     void Afficher(ostream &out) const;
+    void Saisir(istream &in);
     Date operator+(int a) const;
     Date& operator=(const Date &D);
     bool operator<(const Date &D);
@@ -29,4 +30,5 @@ public:
 };
 
 ostream &operator<<(ostream &out, const Date &D);
+istream &operator>>(istream &in, Date &D);
 #endif // DATE_H

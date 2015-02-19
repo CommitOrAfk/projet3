@@ -23,7 +23,35 @@ Date::~Date()
 
 void Date::Afficher(ostream &out) const
 {
-    cout << jour << "/" << mois << "/" << annee << endl;
+    out << jour << "/" << mois << "/" << annee << endl;
+}
+
+void Date::Saisir(istream &in)
+{
+    // saisir jour
+    do
+    {
+    cout << "Saisissez le jour: " <<endl;
+    cin >> jour;
+        if((jour < 1) || (jour > 31))
+        cout << "Saisie incorrecte!" <<endl;
+    }while((jour<1) || (jour > 31));
+    // saisir mois
+    do
+    {
+    cout << "Saisissez le mois: " <<endl;
+    cin >> mois;
+        if((mois < 1) || (mois > 12))
+        cout << "Saisie incorrecte!" <<endl;
+    }while((mois < 1) || (mois > 12));
+    //  saisir annee
+    do
+    {
+    cout << "Saisissez l annee: " <<endl;
+    cin >> annee;
+        if((annee < 1) || (annee > 9999))
+        cout << "Saisie incorrecte!" <<endl;
+    }while((annee < 1) || (annee > 9999));
 }
 
 // operator +, ajoute a à l annee
@@ -98,4 +126,10 @@ ostream &operator<<(ostream &out, const Date &D)
 {
     D.Afficher(out);
     return out;
+}
+
+istream &operator>>(istream &in, Date &D)
+{
+    D.Saisir(in);
+    return in;
 }

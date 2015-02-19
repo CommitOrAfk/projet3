@@ -7,6 +7,7 @@ int main()
 {
 Date D1;
 Date D2(18, 2, 2015);
+Date D3;
 
 D1.Afficher(cout);
 D2.Afficher(cout);
@@ -29,5 +30,8 @@ else
 {
     cout<<"pas tata \n";
 }
+
+cin >> D3;
+D3.Afficher(cout);
 return 0;
 }
