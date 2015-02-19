@@ -32,6 +32,7 @@ C1.Afficher(cout);*/
 
 Compte Co1(111, 1234.56);
 Co1.Afficher();
+Co1.ChangerCoordonnes();
 
 return 0;
 }
