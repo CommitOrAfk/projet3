@@ -1,17 +1,18 @@
-#Makefile test Date
+#Variables
+EXEC = minizoo
+ARGS = -Wall -Wextra -pedantic
 
-
-main.out: date.o client.o compte.o main.cpp
-	g++ $^ -o main.out
+EXEC: date.o client.o compte.o main.cpp
+	g++ $(ARGS) $^ -o $(EXEC)
 	
 date.o: date.cpp date.h
-	g++ -c date.cpp
+	g++ $(ARGS) -c $*.cpp
 
 client.o: client.cpp client.h
-	g++ -c client.cpp
+	g++ $(ARGS) -c $*.cpp
 
 compte.o: compte.cpp compte.h date.o client.o
-	g++ -c compte.cpp
+	g++ $(ARGS) -c $*.cpp
 
 MrProper:
 	rm *.o
