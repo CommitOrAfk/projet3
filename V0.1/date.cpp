@@ -16,28 +16,28 @@ Date::Date(int j, int m, int a)
     do
     {
     cout << "Saisissez le jour: " <<endl;
-    cin >> jour;
-        if((jour < 1) || (jour > 31))
+    cin >> j;
+        if((j < 1) || (j > 31))
         cout << "Saisie incorrecte!" <<endl;
-    }while((jour<1) || (jour > 31));
+    }while((j<1) || (j > 31));
     this->jour = j;
     // saisir mois
     do
     {
     cout << "Saisissez le mois: " <<endl;
-    cin >> mois;
-        if((mois < 1) || (mois > 12))
+    cin >> m;
+        if((m < 1) || (m > 12))
         cout << "Saisie incorrecte!" <<endl;
-    }while((mois < 1) || (mois > 12));
+    }while((m < 1) || (m > 12));
     this->mois = m;
     //  saisir annee
     do
     {
     cout << "Saisissez l annee: " <<endl;
-    cin >> annee;
-        if((annee < 1) || (annee > 9999))
+    cin >> a;
+        if((a < 1) || (a > 9999))
         cout << "Saisie incorrecte!" <<endl;
-    }while((annee < 1) || (annee > 9999));
+    }while((a < 1) || (a > 9999));
     this->annee = a;
 }
 
