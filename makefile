@@ -1,5 +1,5 @@
 #Variables
-EXEC = main
+EXEC = minizoo
 ARGS = -Wall -Wextra -pedantic
 
 EXEC: date.o client.o compte.o main.cpp
