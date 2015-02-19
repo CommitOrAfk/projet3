@@ -27,9 +27,11 @@ Compte::~Compte()
 
 void Compte::ChangerCoordonnes()
 {
+    string poubelle;
     cout<<"Changer vos coordonnées"<<endl;
     cout <<"Entrer une nouvelle adresse : ";
-    cin>>ClientCompte.adresse;
+    getline(cin, poubelle);
+    getline(cin,ClientCompte.adresse);
 }
 
 void Compte::Consulter()
