@@ -24,7 +24,7 @@ Client::Client(int id, int code, string nom, string prenom, string adresse)
     }
 
     cout << "code secret : ";
-    cin >> codesecret;
+    cin >> code;
     this->codesecret=code;
     getline(cin,poubelle);  // getline pour regler le probleme de tampon
     cout << "nom : ";
