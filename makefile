@@ -10,7 +10,7 @@ date.o: date.cpp date.h
 client.o: client.cpp client.h
 	g++ -c client.cpp
 
-compte.o: compte.cpp compte.h
+compte.o: compte.cpp compte.h date.o client.o
 	g++ -c compte.cpp
 
 MrProper:
