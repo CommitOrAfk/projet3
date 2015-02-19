@@ -24,7 +24,7 @@ public:
     void Afficher(ostream &out) const;
     Date operator+(int a) const;
     Date& operator=(const Date &D);
-    Date& operator<(const Date &D);
+    bool operator<(const Date &D);
 };
 
 ostream &operator<<(ostream &out, const Date &D);

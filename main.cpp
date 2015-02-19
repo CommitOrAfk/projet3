@@ -11,7 +11,14 @@ Date D2(18, 2, 2015);
 D1.Afficher(cout);
 D2.Afficher(cout);
 
-//D1<D2;
+if(D1<D2)
+{
+    cout<<"toto \n";
+}
+else
+{
+    cout<<"pa toto \n";
+}
 
 
 return 0;

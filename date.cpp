@@ -43,18 +43,42 @@ Date& Date::operator=(const Date &D)
 }
 
 //operator <
-Date& Date::operator<(const Date &D)
+bool Date::operator<(const Date &D)
 {
+    //Les cas où la date est plus ancienne
     if((this->annee) < D.annee)
+    {
         cout << "La date est plus ancienne"  << endl;
+        return true;
+    }
     if((this->annee) == D.annee && (this->mois) < D.mois)
+    {
         cout << "La date est plus ancienne"  << endl;
+        return true;
+    }
     if((this->annee) == D.annee && (this->mois) == D.mois && (this->jour) < D.jour)
+    {
         cout << "La date est plus ancienne"  << endl;
-    else
-        cout << "La date n est pas plus ancienne."  << endl;
-}
+        return true;
+    }
 
+    //les cas où la date n'est pa plus ancienne
+    if((this->annee) > D.annee)
+    {
+        cout << "La date n est pas plus ancienne."  << endl;
+        return false;
+    }
+    if((this->annee) == D.annee && (this->mois) > D.mois)
+    {
+        cout << "La date n est pas plus ancienne."  << endl;
+        return false;
+    }
+    if((this->annee) == D.annee && (this->mois) == D.mois && (this->jour) > D.jour)
+    {
+        cout << "La date n est pas plus ancienne."  << endl;
+        return false;
+    }
+}
 ostream &operator<<(ostream &out, const Date &D)
 {
     D.Afficher(out);
