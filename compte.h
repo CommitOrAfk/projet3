@@ -7,21 +7,24 @@ using namespace std;
 #ifndef COMPTE_H
 #define COMPTE_H
 
-class Compte
+class Compte 
 {
 protected:
     int id;
     double solde;
-    Date: DateOuverture;
-    Client: ClientCompte;
-
+    Date DateOuverture;
+    Client ClientCompte;
 public:
     // constructeurs/destructeur
     Compte();
-    Compte(int id = 0, double solde = 0);
+    Compte(int id = 0, double solde =0);
     virtual ~Compte();
+    Afficher();
+    void ChangerCoordonnes();
+    void Consulter();
+    Cloturer();
     // fonctions membres
 
-}:
+};
 
 #endif
