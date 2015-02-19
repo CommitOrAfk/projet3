@@ -29,9 +29,9 @@ void Client::Saisir(istream &in)
 {
     cout << "Saisir les informations relatives au client : \n":
     cout << "ID : ";
-    cin << identifiant;
+    cin >> identifiant;
     cout << "code secret : ";
-    cin << codesecret;
+    cin >> codesecret;
     cout << "nom : ";
     getline(cin,nom);
     cout << "prenom : ";
