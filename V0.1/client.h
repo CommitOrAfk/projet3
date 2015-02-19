@@ -10,15 +10,16 @@ using namespace std;
 
 class Client
 {
-//protected:
-  public:
+
+  protected:
     int identifiant;
     int codesecret;
     string nom;
     string prenom;
-    string adresse;
 
-   // public:
+
+    public:
+    string adresse;
         // constructeurs/destructeur
         //Client();
         Client(int id = 0, int code = 0, string nom = "noname", string prenom = "noprenom", string adresse = "noadresse");
