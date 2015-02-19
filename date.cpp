@@ -11,7 +11,7 @@ Date::Date()
 
 Date::Date(int j, int m, int a)
 {
-    cout << "copie parametre par default" << endl; //!debug
+    cout << "constructeur parametre par default" << endl; //!debug
     jour = j;
     mois = m;
     annee = a;
@@ -79,6 +79,21 @@ bool Date::operator<(const Date &D)
         return false;
     }
 }
+
+bool Date::operator==(const Date &D)
+{
+    if((this->jour && this->mois && this->annee) == (D.jour && D.mois && D.annee))
+    {
+        cout << "Les dates sont identiques." <<endl;
+        return true;
+    }
+    else
+    {
+        cout << "Les dates ne sont pas identiques." <<endl;
+        return false;
+    }
+}
+
 ostream &operator<<(ostream &out, const Date &D)
 {
     D.Afficher(out);

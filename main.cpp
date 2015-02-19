@@ -21,5 +21,13 @@ else
 }
 
 
+if(D1==D2)
+{
+    cout<<"tata \n";
+}
+else
+{
+    cout<<"pas tata \n";
+}
 return 0;
 }
