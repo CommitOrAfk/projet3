@@ -29,7 +29,7 @@ Client::Client(int id, int code, string nom, string prenom, string adresse)
 
 void Client::Afficher(ostream &out) const
 {
-    out << "id : " << identifiant << "\t" << setfill('0') << setw(4) << "code : " << codesecret << endl;
+    out << "id : " << identifiant << "\t" << setfill('0') << "code : "<< setw(4) << codesecret << endl;
     out << "nom : " << nom << "\t" << "prenom : " << prenom << endl;
     out << "adresse : " << adresse << endl;
 }
