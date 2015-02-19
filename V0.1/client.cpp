@@ -57,14 +57,14 @@ void Client::Saisir(istream &in)
         this->identifiant = this->identifiant * -1;
     }
     cout << "code secret : ";
-    cin >> codesecret;
-    getline(cin,poubelle);  // getline pour regler le probleme de tampon
+    in >> codesecret;
+    getline(in,poubelle);  // getline pour regler le probleme de tampon
     cout << "nom : ";
-    getline(cin,nom);
+    getline(in,nom);
     cout << "prenom : ";
-    getline(cin,prenom);
+    getline(in,prenom);
     cout << "adresse : ";
-    getline(cin,adresse);
+    getline(in,adresse);
 }
 
 ostream &operator<<(ostream &out, const Client &C)
