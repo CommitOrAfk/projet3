@@ -109,7 +109,7 @@ appelé "nom_fichier"
 # Code_Secret : int
 # Nom : string
 # Prenom : string
-# Adresse : string
++ Adresse : string
 --
 + Afficher()
 + Saisir</panel_attributes>
