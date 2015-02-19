@@ -35,6 +35,11 @@ void Client::Saisir(istream &in)
     cout << "Saisir les informations relatives au client : \n";
     cout << "ID : ";
     cin >> identifiant;
+    identifiant = (int)(this);
+    if(this->identifiant < 0)
+    {
+        this->identifiant = this->identifiant * -1;
+    }
     cout << "code secret : ";
     cin >> codesecret;
     cout << "nom : ";
