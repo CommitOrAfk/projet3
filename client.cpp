@@ -3,6 +3,10 @@
 Client::Client()
 {
     identifiant=(int)(this);
+    if(identifiant < 0)
+    {
+        identifiant=identifiant * -1;
+    }
     codesecret=0000;
     nom="MARTIN";
     prenom="Paul";
@@ -25,16 +29,16 @@ Client::Client(int id, int code, string nom, string prenom, string adresse)
 
 void Client::Afficher(ostream &out) const
 {
-    out << "id : " << identifiant << "\t" << "code : " << codesecret << endl;
+    out << "id : " << identifiant << "\t" << setfill('0') << setw(4) << "code : " << codesecret << endl;
     out << "nom : " << nom << "\t" << "prenom : " << prenom << endl;
     out << "adresse : " << adresse << endl;
 }
 
 void Client::Saisir(istream &in)
 {
+    string poubelle;        // on cree un string qui nous servira juste pour regler un probleme de tampon memoire
+
     cout << "Saisir les informations relatives au client : \n";
-    cout << "ID : ";
-    cin >> identifiant;
     identifiant = (int)(this);
     if(this->identifiant < 0)
     {
@@ -42,6 +46,7 @@ void Client::Saisir(istream &in)
     }
     cout << "code secret : ";
     cin >> codesecret;
+    getline(cin,poubelle);  // getline pour regler le probleme de tampon
     cout << "nom : ";
     getline(cin,nom);
     cout << "prenom : ";
