@@ -12,6 +12,11 @@ Client::Client()
 Client::Client(int id, int code, string nom, string prenom, string adresse)
 {
     identifiant=id;
+    this->identifiant = (int)(this);
+    if(this->identifiant < 0)
+    {
+        this->identifiant = this->identifiant * -1;
+    }
     codesecret=code;
     this->nom=nom;
     this->prenom=prenom;
