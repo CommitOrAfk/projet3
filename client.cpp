@@ -2,7 +2,7 @@
 
 Client::Client()
 {
-    identifiant=12345;
+    identifiant=(int)(this);
     codesecret=0000;
     nom="MARTIN";
     prenom="Paul";
@@ -27,7 +27,7 @@ void Client::Afficher(ostream &out) const
 
 void Client::Saisir(istream &in)
 {
-    cout << "Saisir les informations relatives au client : \n":
+    cout << "Saisir les informations relatives au client : \n";
     cout << "ID : ";
     cin >> identifiant;
     cout << "code secret : ";

@@ -2,6 +2,8 @@
 #include <ostream>
 #include <string>
 
+using namespace std;
+
 #ifndef CLIENT_H
 #define CLIENT_H
 
