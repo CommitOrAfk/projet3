@@ -8,6 +8,9 @@ test date uniquement pour l'instant
 
 void Saisir_Today(int *today);
 void Afficher_Today(const int *today);
+void Ajouter_Jour(int *today, int nb_jour_ajoute);
+void Ajouter_Mois(int *today, int nb_mois_ajoute);
+void Ajouter_An(int *today, int nb_an_ajoute);
 
 int main()
 {
@@ -45,8 +48,8 @@ Co1.Afficher(); //ne marche pas car le compte est cloturé!*/
 ptr_C01->Afficher();
 delete ptr_C01;*/
 
-Test T1(2.40);
-T1.Afficher();
+/*Test T1(2.40);
+T1.Afficher();*/
 
 int date_today[3]; // date_today est un tableau de 3 entiers représentant la date du jour: date_today[0] est le jour, date_today[1] est le mois, date_today[2] est l'année
 // Volontairement, je ne fais pas de fonction Bon dans le temps, il suffira de rajouter le temps voulu aux moments données dans l'application. Ceci explique mon choix d'un tableau d'entier.
@@ -54,8 +57,17 @@ int date_today[3]; // date_today est un tableau de 3 entiers représentant la da
 Saisir_Today(date_today);
 Afficher_Today(date_today);
 
+Ajouter_An(date_today, 2);
+Afficher_Today(date_today);
 
-T1.Consulter(date_today);
+Ajouter_Mois(date_today, 6);
+Afficher_Today(date_today);
+
+Ajouter_Jour(date_today, 20);
+Afficher_Today(date_today);
+
+
+//T1.Consulter(date_today);
 
 return 0;
 }
@@ -96,3 +108,62 @@ void Afficher_Today(const int *today)
     cout<<"Date du jour: "<< today[0]<<"/"<<today[1]<<"/"<<today[2]<<endl;
 }
 
+//Bon dans le temps, ajoute le nombre de jour passé en paramètre à la date du jour
+void Ajouter_Jour(int *today, int nb_jour_ajoute)
+{
+    int temp =0;
+    int temp_today0 = 0;
+    int temp_today1 = 0;
+
+    temp_today0 = today[0] + nb_jour_ajoute;
+
+
+    //Si l'ajout dépasse le mois
+    if(temp_today0 > 31)
+    {
+        temp_today1 = today[1] + 1;
+        temp = nb_jour_ajoute - (31 - today[0]);
+        today[0] = temp;
+        temp = 0;
+
+        if( temp_today1 > 12)
+        {
+            today[2] = today[2] +1;
+            today[1] = 1;
+        }
+        else
+        {
+            today[1] = today[1] +1;
+        }
+    }
+    else
+    {
+        today[0] =temp_today0;
+    }
+}
+
+//Bon dans le temps, ajoute le nombre de mois passé en paramètre à la date du jour
+void Ajouter_Mois(int *today, int nb_mois_ajoute)
+{
+    int temp =0;
+    int temp_today1 = 0;
+    temp_today1 = today[1] + nb_mois_ajoute;
+
+    //Si l'ajout dépasse l'année
+    if( temp_today1 > 12)
+    {
+        today[2] = today[2] +1;
+        temp = nb_mois_ajoute - (12 - today[1]);
+        today[1] = temp;
+    }
+    else
+    {
+        today[1] = temp_today1;
+    }
+}
+
+//Bon dans le temps, ajoute le nombre d'année passé en paramètre à la date du jour
+void Ajouter_An(int *today, int nb_an_ajoute)
+{
+    today[2] = today[2] + nb_an_ajoute;
+}
