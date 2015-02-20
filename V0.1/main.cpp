@@ -4,6 +4,7 @@ test date uniquement pour l'instant
 #include "date.h"
 #include "client.h"
 #include "compte.h"
+#include "test.h"
 
 int main()
 {
@@ -35,6 +36,9 @@ Co1.Afficher();
 Co1.ChangerCoordonnes();
 Co1.Cloturer();
 Co1.Afficher(); //ne marche pas car le compte est cloturé!
+
+Test T1;
+T1.Afficher();
 
 return 0;
 }
