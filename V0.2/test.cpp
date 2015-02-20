@@ -17,9 +17,13 @@ void Test::ChangerCoordonnes()
 {
     //TODO
 }
-double Test::Consulter()
+double Test::Consulter(const int *today)
 {
     //TODO
+    if(this->DateOuverture.jour > today[0])
+    {
+        cout<<"Le jour de date d'ouverture est supérieur à la date du jour";
+    }
     return 0;
 }
 void Test::Cloturer()
@@ -32,4 +36,7 @@ bool Test::EstOuvert()
     //TODO
     return true;
 }
+
+
+
 

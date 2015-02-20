@@ -10,12 +10,12 @@ using namespace std;
 
 class Date
 {
-protected:
+
+public:
+
     int jour;
     int mois;
     int annee;
-
-public:
     // constructeur/destructeur
     Date();
     Date(int j, int m, int a);

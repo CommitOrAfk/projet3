@@ -60,7 +60,7 @@ void Compte::Afficher()
 	if (isOpen)
 	{
 		cout<<"Identifiant du compte: "<<this->id<<endl;
-		cout<<"Solde :"<< fixed << setprecision(0) << setw(8) << setfill('0') << solde << endl;
+		cout<<"Solde :"<< fixed << setprecision(2) << solde << endl;
 		ClientCompte.Afficher(cout);
 		DateOuverture.Afficher(cout);
 	}

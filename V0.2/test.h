@@ -13,7 +13,7 @@ public:
 
     void Afficher();
     void ChangerCoordonnes();
-    double Consulter();
+    double Consulter(const int *today);
     void Cloturer();
     bool EstOuvert();
 
