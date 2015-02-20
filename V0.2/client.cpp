@@ -23,8 +23,10 @@ Client::Client(int id, int code, string nom, string prenom, string adresse)
         this->identifiant = this->identifiant * -1;
     }
 
-    cout << "code secret : ";
-    cin >> code;
+    do{
+        cout << "code secret : ";
+        cin >> code;
+        }while(code < 0 || code > 9999);
     this->codesecret=code;
     getline(cin,poubelle);  // getline pour regler le probleme de tampon
     cout << "nom : ";
