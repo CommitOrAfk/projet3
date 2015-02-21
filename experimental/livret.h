@@ -10,18 +10,20 @@
 
 class Livret : public Compte
 {
-    const static double taux_remuneration=0.0125;
-   const static double plafond=22000;
+    private:
+
+        double taux_remuneration;
+        double plafond;
 
 
-public:
+    public:
 
-     void Ajouter();
-    double CalculInteret();
+        Livret();
+        void Ajouter();
+        double CalculInteret();
 
-    void OuvrirCompteEpargne();
 
-    virtual ~Livret();
+        virtual ~Livret();
 
 };
 

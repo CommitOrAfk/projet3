@@ -48,7 +48,7 @@ delete ptr_C01;*/
 //Test T1(2.40);
 //T1.Afficher();
 posseder p;
-p.SaisirClient();
+
 
 return 0;
 }

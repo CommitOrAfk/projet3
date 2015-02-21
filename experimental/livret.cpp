@@ -1,19 +1,13 @@
 #include "livret.h"
 
 
-
-void Livret::OuvrirCompteEpargne()
+Livret::Livret(): Compte(id, solde)
 {
-
-    if(isOpen==false)
-    {
-        isOpen=true;
-    }
-    else
-    {
-        cout<<"Vous avez déjà un compte Epargne"<<endl;
-    }
+    this->taux_remuneration = 0.0125;
+    this->plafond = 22000;
+    this->isOpen=true;
 }
+
 
 Livret::~Livret()
 {
