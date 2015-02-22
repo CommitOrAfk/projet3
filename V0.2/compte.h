@@ -1,7 +1,5 @@
 /** date.cpp work in progress
 **/
-#include <ctime>
-#include <cstdlib>
 #include "client.h"
 #include "date.h"
 using namespace std;
@@ -30,7 +28,11 @@ public:
     virtual double Consulter();
     virtual void Cloturer();
     virtual bool EstOuvert();
+    int getjour();
+    int getmois();
+    int getannee();
     // fonctions membres
+
 };
 
 #endif

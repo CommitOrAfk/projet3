@@ -74,3 +74,16 @@ bool Compte::EstOuvert()
 {
 	return isOpen;
 }
+
+ int Compte::getjour()
+ {
+    return DateOuverture.jour;
+ }
+int Compte::getmois()
+{
+    return DateOuverture.mois;
+}
+int Compte::getannee()
+{
+    return DateOuverture.annee;
+}
