@@ -1,5 +1,7 @@
 /** date.cpp work in progress
 **/
+#include <ctime>
+#include <cstdlib>
 #include "client.h"
 #include "date.h"
 using namespace std;
@@ -29,7 +31,6 @@ public:
     virtual void Cloturer();
     virtual bool EstOuvert();
     // fonctions membres
-
 };
 
 #endif
