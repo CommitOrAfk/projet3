@@ -21,8 +21,8 @@ public:
 
     void Afficher();
     void TempsRestant(const int *today);
-
-
+    void CalculInterets(const int *today);
+    void TempsOuvert(const int *today);
 };
 
 #endif // TEST_H
