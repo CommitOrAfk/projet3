@@ -74,9 +74,3 @@ bool Compte::EstOuvert()
 {
 	return isOpen;
 }
-
-bool Compte::GenererId()
-{
-    srand(time(NULL));
-    return (rand() % (INT_MAX - INT_MIN + 1)) + INT_MIN;
-}
