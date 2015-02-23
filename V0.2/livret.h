@@ -21,6 +21,11 @@ class Livret : public Compte
         Livret();
         void Ajouter();
         double CalculInteret();
+        void Afficher() const;
+        void Saisir();
+        void Cloturer();
+        double Consulter();
+        void EstOuvert();
 
 
         virtual ~Livret();
