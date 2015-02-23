@@ -19,10 +19,8 @@ CompteBloque::CompteBloque(double tx, double versements)
 
 void CompteBloque::Afficher() const
 {
-    cout<<"*** Compte Bloque ***\n";
-    Compte::Afficher();
-    cout << "Taux interet: " << setprecision(2) << txinteret << endl;
-    cout << "Montant des versements par mois: " << setprecision(2) << versements <<endl;
+    cout << "   Taux interet: " << setprecision(2) << txinteret << endl;
+    cout << "   Montant des versements par mois: " << setprecision(2) << versements << endl;
     Compte::Afficher();
 }
 
@@ -33,10 +31,8 @@ void CompteBloque::Saisir()
     {
         id = id*-1;
     }
-    cout << "Saisir le taux d interet: ";
-    cin >> txinteret;
-    cout << "Saisir le montant des versements par mois: ";
-    cin >> versements;
+    cout << "   Saisir le taux interet: "; cin >> txinteret;
+    cout << "   Saisir le montant des versements par mois: "; cin >> versements;
 }
 // calcul le temps que le compte est bloque
 void CompteBloque::TempsRestant(const int *today)
