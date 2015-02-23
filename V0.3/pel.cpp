@@ -2,9 +2,9 @@
 
 Pel::Pel(double tauxEmprunt, double tauxRemu, double montantMensuel, int id, int solde): Compte(id, solde)//, Compte::Date(int jour, int mois, int annee), Compte::Client(int id, int code, string nom, string prenom, string adresse)
 {
-	this->tauxRemu = 0;
+	this->tauxRemu       = 0;
 	this->tauxRemu       = tauxRemu;
-	this->tauxEmprunt = 0;
+	this->tauxEmprunt    = 0;
 	this->tauxEmprunt    = tauxEmprunt;
 	this->montantMensuel = 0;
 	this->montantMensuel = montantMensuel;
