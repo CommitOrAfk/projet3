@@ -6,6 +6,7 @@ test date uniquement pour l'instant
 #include "compte.h"
 #include "test.h"
 #include "comptebloque.h"
+#include "pel.h"
 #include <vector>
 
 void Saisir_Today(int *today);
@@ -14,24 +15,11 @@ void Ajouter_Jour(int *today, int nb_jour_ajoute);
 void Ajouter_Mois(int *today, int nb_mois_ajoute);
 void Ajouter_An(int *today, int nb_an_ajoute);
 
+void TesterPel();
+
 int main()
 {
-	time_t today = time(NULL);
-	tm* todayTm  = localtime(&today);
-	int date_today[3]; // date_today est un tableau de 3 entiers représentant la date du jour: date_today[0] est le jour, date_today[1] est le mois, date_today[2] est l'année
-	// Volontairement, je ne fais pas de fonction Bon dans le temps, il suffira de rajouter le temps voulu aux moments données dans l'application. Ceci explique mon choix d'un tableau d'entier.
-	date_today[0] = todayTm->tm_mday;
-	date_today[1] = todayTm->tm_mon + 1;
-	date_today[2] = todayTm->tm_year + 1900;
-	Afficher_Today(date_today);
-	cout << "Saisie du compte:" << endl;
-	CompteBloque C1(2.5, 0);
-	cout << "Calcul du temps restant:" << endl;
-	C1.TempsRestant(date_today);
-	C1.Saisir();
-	C1.CalculInterets(date_today);
-	C1.Afficher();
-	C1.TempsOuvert(date_today);
+	TesterPel();
 	return 0;
 }
 
@@ -140,3 +128,37 @@ void VerifierChoix(int petit, int grand, int chiffre_a_comparer)
     }
 }
 
+void TesterPel()
+{
+	time_t today = time(NULL);
+	tm* todayTm  = localtime(&today);
+	int date_today[3]; // date_today est un tableau de 3 entiers représentant la date du jour: date_today[0] est le jour, date_today[1] est le mois, date_today[2] est l'année
+	// Volontairement, je ne fais pas de fonction Bon dans le temps, il suffira de rajouter le temps voulu aux moments données dans l'application. Ceci explique mon choix d'un tableau d'entier.
+	date_today[0] = todayTm->tm_mday;
+	date_today[1] = todayTm->tm_mon + 1;
+	date_today[2] = todayTm->tm_year + 1900;
+	Afficher_Today(date_today);
+	cout << "Saisie du compte:" << endl;
+	Pel C1;
+	cin >> C1;
+
+	C1.Afficher();
+	cout << "Solde: " << C1.Consulter() << endl;
+
+	cout << "Dépot de 100€." << endl;
+	C1.Deposer(date_today, 100);
+	C1.TempsRestantAvantEmprunt(date_today);
+	C1.CalculerEmprunt(date_today);
+
+	cout << "Premier saut de 6 ans dans le futur." << endl;
+	Ajouter_An(date_today, 6);
+	C1.AvancerAnnees(date_today);
+
+	cout << "Retrait de 100€." << endl;
+	C1.Retirer(date_today, 100);
+	C1.CalculerEmprunt(date_today);
+
+	cout << "Dernier saut dans le temps de 2 ans." << endl;
+	Ajouter_An(date_today, 2);
+	C1.AvancerAnnees(date_today);
+}
