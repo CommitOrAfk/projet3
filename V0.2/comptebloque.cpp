@@ -2,20 +2,29 @@
 #include <ctime>
 
 // variable static
-int CompteBloque::dureeblocage = 48;
+int CompteBloque::dureeblocage = 4; // 4 ans
 // constructeur
-CompteBloque::CompteBloque(double tx, int dureeouverture)
+CompteBloque::CompteBloque(double tx, double versements)
 {
     txinteret = tx;
-    this->dureeouverture = dureeouverture;
+    this->versements = versements;
 }
 
 void CompteBloque::Afficher()
 {
-    cout << "Taux interet: " << setprecision(1) << txinteret << endl;
+    cout << "Taux interet: " << setprecision(2) << txinteret << endl;
+    cout << "Montant des versements par mois: " << setprecision(2) << versements <<endl;
     Compte::Afficher();
 }
 
+void CompteBloque::Saisir()
+{
+    cout << "Saisir le taux d interet: ";
+    cin >> txinteret;
+    cout << "Saisir le montant des versements par mois: ";
+    cin >> versements;
+}
+// calcul le temps que le compte est bloque
 void CompteBloque::TempsRestant(const int *today)
 {
 
@@ -25,7 +34,7 @@ void CompteBloque::TempsRestant(const int *today)
 
 	date_compte[0] = Compte::getjour();
 	date_compte[1] = Compte::getmois();
-	date_compte[2] = Compte::getannee() + 4; // 4 ans de blocage dans le cas du CompteBloque
+	date_compte[2] = Compte::getannee() + dureeblocage; // 4 ans de blocage dans le cas du CompteBloque
 
 	// conversion des secondes en duree
 	resDiff = Compte::CalculIntervalle(today, date_compte, resJ, resM, resA);
@@ -44,31 +53,50 @@ void CompteBloque::TempsRestant(const int *today)
         cout << "Il reste: " << resA << " annees, " << resM << " mois et " << resJ << " jours avant le debloquage." << endl;
     }
 }
-
+// calcul des interets + versements par an
 void CompteBloque::CalculInterets(const int *today)
 {
     int anneecreation, anneeactuel;
     anneecreation = Compte::getannee();
     anneeactuel =  today[2];
+    if(isOpen)
+    {
+        if(anneeactuel  > anneecreation && anneeactuel < (anneecreation +2))
+        {
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+        }
+        else if(anneeactuel > (anneecreation +1) && anneeactuel < (anneecreation +3))
+        {
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+        }
+        else if(anneeactuel > (anneecreation + 2) && anneeactuel < (anneecreation + 4))
+        {
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+        }
+        else
+        {
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+            solde = solde + (versements * 12);
+            solde = solde * txinteret;
+        }
 
-    if((anneeactuel +1) > anneecreation && (anneeactuel + 1) < (anneecreation +2))
-    {
-        this->solde = this->solde * txinteret;
-    }
-    else if((anneeactuel +2) > (anneecreation +1) && (anneeactuel +2) < (anneecreation +3))
-    {
-        this->solde = this->solde * (txinteret * txinteret);
-    }
-    else if((anneeactuel +3) > (anneecreation + 2) && (anneeactuel + 3) < (anneecreation + 4))
-    {
-        this->solde = this->solde * (txinteret * txinteret * txinteret);
-    }
-    else
-    {
-        this->solde = this->solde * (txinteret * txinteret * txinteret * txinteret);
     }
 }
-
+// calcul le temps que le compte est ouvert
 void CompteBloque::TempsOuvert(const int *today)
 {
     int j, m, a, ja, ma, aa; // j, m, a sont les variables de la date actuelle, ja, ma, aa de la date de creation du compte
@@ -116,7 +144,7 @@ void CompteBloque::TempsOuvert(const int *today)
     rtime = mktime(timeactuel);
 
     // difference des deux dates
-   diff = difftime(ltime, rtime);
+   diff = difftime(rtime, ltime);
 
    // conversion des secondes en duree
    // d abord la plus petite valeur: moins d un jour

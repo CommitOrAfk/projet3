@@ -1,6 +1,8 @@
 /** Class: Compte Bloque    Alexander
 Particularités:
-compte bloqué pendant 4 ans (ou 48 mois)
+compte bloqué pendant 4 ans
+Somme verse initialement + versements par mois
+Taux interet calcule a l annee
 **/
 #include "compte.h"
 #include <ctime>
