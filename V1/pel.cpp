@@ -57,39 +57,46 @@ void Pel::Saisir(istream &in)
 	double saisieMontant; // va être saisie
 	double saisieMensuel; // idem, pour le montant mensuel
 
-	if (solde < 225)
+	if (isOpen)
 	{
-		cout << "Dans le cas du PEL, le premier virement doit être supérieur ou égal à 225€." << endl;
-		cout << "Or il est actuellement à " << solde << " €." << endl;
-		// saisie d'un premier virement valide
+		if (solde < 225)
+		{
+			cout << "Dans le cas du PEL, le premier virement doit être supérieur ou égal à 225€." << endl;
+			cout << "Or il est actuellement à " << solde << " €." << endl;
+			// saisie d'un premier virement valide
+			do
+			{
+				cout << "Saisissez le montant du premier virement." << endl;
+				in >> saisieMontant;
+
+				if (saisieMontant < 225)
+					cout << "Le montant du premier virement doit être supérieur ou égal à 225€." << endl;
+				else
+					solde = saisieMontant;
+
+			}
+			while(saisieMontant < 225);
+		}
+
 		do
 		{
-			cout << "Saisissez le montant du premier virement." << endl;
-			in >> saisieMontant;
+			cout << "Saisisse le montant du versement mensuel (doit être supérieur ou égal à 45€):" << endl;
+			in >> saisieMensuel;
 
-			if (saisieMontant < 225)
-				cout << "Le montant du premier virement doit être supérieur ou égal à 225€." << endl;
-			else
-				solde = saisieMontant;
-
+				if (saisieMensuel < 45)
+					cout << "Vous devez verser un minimum de 45€ par mois sur votre PEL." << endl;
+				else
+					montantMensuel = saisieMensuel;
 		}
-		while(saisieMontant < 225);
-	}
+		while(saisieMensuel < 45);
 
-	do
+		anneeDebutRetrait = Compte::getannee() + PEL_DUREE_VERSEMENTS;
+		anneeCloture      = Compte::getannee() + PEL_DUREE_VERSEMENTS + PEL_DUREE_RETRAITS;
+	}
+	else
 	{
-		cout << "Saisisse le montant du versement mensuel (doit être supérieur ou égal à 45€):" << endl;
-		in >> saisieMensuel;
-
-			if (saisieMensuel < 45)
-				cout << "Vous devez verser un minimum de 45€ par mois sur votre PEL." << endl;
-			else
-				montantMensuel = saisieMensuel;
+		cout << "Ce compte est fermé, impossible d'y accéder." << endl;
 	}
-	while(saisieMensuel < 45);
-
-	anneeDebutRetrait = Compte::getannee() + PEL_DUREE_VERSEMENTS;
-	anneeCloture      = Compte::getannee() + PEL_DUREE_VERSEMENTS + PEL_DUREE_RETRAITS;
 }
 
 int Pel::Deposer(const int *today, double montant)
