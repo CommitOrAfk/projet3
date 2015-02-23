@@ -52,7 +52,7 @@ int main()
 	cout << "╔══════════════════════════════════════════════════════╗" << endl;;
     cout << "║              Menu Principal                          ║" <<endl;;
     cout << "╠══════════════════════════════════════════════════════╣" << endl;
-    cout << "║ "; Afficher_Today(date_today) ;cout<<"               ║ " << endl;
+    cout << "║ "; Afficher_Today(date_today) ; cout <<"                            ║ " << endl;
     cout << "╟──────────────────────────────────────────────────────╢" << endl;
     cout << "║ Que voulez vous faire?                               ║ " << endl;
     cout << "║ 1. Saisir un nouveau client.                         ║ " << endl;
@@ -87,7 +87,7 @@ int main()
                     	cout << "╔══════════════════════════════════════════════════════╗" << endl;;
                         cout << "║              Gestion des comptes                     ║" <<endl;;
                         cout << "╠══════════════════════════════════════════════════════╣" << endl;
-                        cout << "║ "; Afficher_Today(date_today) ; cout <<"             ║ " << endl;
+                        cout << "║ "; Afficher_Today(date_today) ; cout <<"                            ║ " << endl;
                         cout << "╟──────────────────────────────────────────────────────╢" << endl;
                         cout << "║ Que voulez vous faire?                               ║ " << endl;
                         cout << "║ 1. Compte Courant                                    ║ " << endl;

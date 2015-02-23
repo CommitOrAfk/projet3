@@ -2,14 +2,15 @@
 
 Pel::Pel(double tauxEmprunt, double tauxRemu, double montantMensuel, int id, int solde): Compte(id, solde)//, Compte::Date(int jour, int mois, int annee), Compte::Client(int id, int code, string nom, string prenom, string adresse)
 {
-	this->tauxRemu = 0;
-	this->tauxRemu       = tauxRemu;
-	this->tauxEmprunt = 0;
-	this->tauxEmprunt    = tauxEmprunt;
-	this->montantMensuel = 0;
-	this->montantMensuel = montantMensuel;
-	this->isOpen         = true;
-	this->interetsAcquis = 0.0;
+	this->tauxRemu        = 0;
+	this->tauxRemu        = tauxRemu;
+	this->tauxEmprunt     = 0;
+	this->tauxEmprunt     = tauxEmprunt;
+	this->montantMensuel  = 0;
+	this->montantMensuel  = montantMensuel;
+	this->isOpen          = true;
+	this->interetsAcquis  = 0.0;
+	this->versementExcept = false;
 }
 
 /*Pel::Pel(Pel &P): Compte(P)
@@ -24,12 +25,18 @@ Pel::Pel(double tauxEmprunt, double tauxRemu, double montantMensuel, int id, int
 
 void Pel::Afficher() const
 {
-    cout<<"*** PEL ***\n";
-    Compte::Afficher();
-	cout << "Taux de rémunération: " << tauxRemu << " %." << endl;
-	cout << "Taux d'emprunt (après 4ans): " << tauxEmprunt << " %." << endl;
-	cout << "Montant du versement mensuel: " << montantMensuel << " €." << endl;
-
+	if (isOpen)
+	{	
+		cout<<"*** PEL ***\n";
+		Compte::Afficher();
+		cout << "Taux de rémunération: " << tauxRemu << " %." << endl;
+		cout << "Taux d'emprunt (après 4ans): " << tauxEmprunt << " %." << endl;
+		cout << "Montant du versement mensuel: " << montantMensuel << " €." << endl;
+	}
+	else
+	{
+		cout << "Ce compte est fermé, impossible d'y accéder." << endl;
+	}
 }
 
 double Pel::Consulter()
@@ -92,31 +99,41 @@ int Pel::Deposer(const int *today, double montant)
 	// première vérif obligatoire
 	if (isOpen)
 	{
-		//deuxième vérif nécéssaire
-		if ((solde + montant) > PEL_PLAFOND)
+		// si on a pas encore fait de versement exceptionnel
+		if (!versementExcept)
 		{
-			cout << "Impossible de verser le montant " << montant << " car le plafond est à " << PEL_PLAFOND << '.' << endl;
-			return -2;
-		}
+			//deuxième vérif nécéssaire
+			if ((solde + montant) > PEL_PLAFOND)
+			{
+				cout << "Impossible de verser le montant " << montant << " car le plafond est à " << PEL_PLAFOND << '.' << endl;
+				return -2;
+			}
 
-		date_compte[0] = Compte::getjour();
-		date_compte[1] = Compte::getmois();
-		date_compte[2] = Compte::getannee() + PEL_DUREE_VERSEMENTS; // 4 ans de blocage dans le cas du PEL
+			date_compte[0] = Compte::getjour();
+			date_compte[1] = Compte::getmois();
+			date_compte[2] = Compte::getannee() + PEL_DUREE_VERSEMENTS; // 4 ans de blocage dans le cas du PEL
 
-		// conversion des secondes en duree
-		Compte::CalculIntervalle(today, date_compte, resJ, resM, resA);
-		//si il reste au moins un jour, un moins ou une année avant la fin de la période de dépôt
-		if (resJ > 0 || resJ > 0 || resA > 0)
-		{
-			solde += montant;
-			cout << "Versement accepté. Votre nouveau solde est: " << solde << " €." << endl;
-			return 0;
+			// conversion des secondes en duree
+			Compte::CalculIntervalle(today, date_compte, resJ, resM, resA);
+			//si il reste au moins un jour, un moins ou une année avant la fin de la période de dépôt
+			if (resJ > 0 || resJ > 0 || resA > 0)
+			{
+				solde += montant;
+				cout << "Versement accepté. Votre nouveau solde est: " << solde << " €." << endl;
+				return 0;
+			}
+			// sinon on est dans la période de retrait
+			else
+			{
+				cout << "Versement refusé, la période de dépôt est terminée." << endl;
+				return -3;
+			}
+			// ne pas oublier de notifier le PEl que le versement exceptionnel a été effectué
+			versementExcept = true;
 		}
-		// sinon on est dans la période de retrait
 		else
 		{
-			cout << "Versement refusé, la période de dépôt est terminée." << endl;
-			return -3;
+			cout << "Vous avez déjà effectué un virement exceptionnel." << endl;
 		}
 	}
 	else
@@ -171,7 +188,8 @@ void Pel::AvancerAnnees(const int *date)
 	date_compte[1] = Compte::getmois();
 	date_compte[2] = anneeCloture; // 4 ans de blocage dans le cas du PEL
 
-	if (isOpen) {
+	if (isOpen)
+	{
 		// conversion des secondes en duree
 		Compte::CalculIntervalle(date, date_compte, resJ, resM, resA);
 		//si il n'y a plus de temps on peut cloturer
@@ -220,18 +238,18 @@ void Pel::TempsRestantAvantEmprunt(const int *today)
 		resDiff = Compte::CalculIntervalle(today, date_compte, resJ, resM, resA);
 
 		// d abord la plus petite valeur: moins d un jour
-	    if(resDiff == 1)
-	    {
-	        cout << "Il reste moins d un jour avant que vous puissiez emprunter." << endl;
-	    }
-	    else if(resDiff == 2) // il reste moins d un an, donc mois et jours:
-	    {
-	        cout << "Il reste " << resM << " mois et " << resJ << " jours avant un possible emprunt." << endl;
-	    }
-	    else // il reste au moins un an, donc an, mois et jours
-	    {
-	        cout << "Il reste " << resA << " annees, " << resM << " mois et " << resJ << " jours avant un possible emprunt." << endl;
-	    }
+		if(resDiff == 1)
+		{
+			cout << "Il reste moins d un jour avant que vous puissiez emprunter." << endl;
+		}
+		else if(resDiff == 2) // il reste moins d un an, donc mois et jours:
+		{
+			cout << "Il reste " << resM << " mois et " << resJ << " jours avant un possible emprunt." << endl;
+		}
+		else // il reste au moins un an, donc an, mois et jours
+		{
+			cout << "Il reste " << resA << " annees, " << resM << " mois et " << resJ << " jours avant un possible emprunt." << endl;
+		}
 	}
 	else
 	{

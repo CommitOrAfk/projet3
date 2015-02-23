@@ -19,6 +19,7 @@ private:
 	double interetsAcquis;
 	int anneeDebutRetrait;
 	int anneeCloture;
+	bool versementExcept;
 	void CalculerInterets();
 public:
 	Pel(double tauxEmprunt = PEL_TAUX_EMPRUNT, double tauxRemu = PEL_TAUX_REMU, double montantMensuel = 45.0, int id = 1, int solde = 0);

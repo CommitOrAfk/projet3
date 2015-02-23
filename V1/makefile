@@ -1,6 +1,8 @@
-#Variables
+# Variables
 EXEC = gestion
-ARGS = -Wall -Wextra -pedantic
+# Il y a bien un -std= pour g++, mais la norme n'est pas c11 mais c++11!
+# Ce qui donne tout son sens au -pedantic, Mea Culpa (Théo).
+ARGS = -std=c++11 -Wall -Wextra -pedantic
 
 EXEC: date.o client.o compte.o comptecourant.o livret.o comptebloque.o pel.o ecompte.o main.cpp
 	g++ $(ARGS) $^ -o $(EXEC)
