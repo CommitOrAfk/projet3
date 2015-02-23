@@ -4,11 +4,11 @@
 
 #include "ecompte.h"
 
-/*ECompte::ECompte()
+ECompte::ECompte()
 {
     this->mail="trololo@yahoo.co.uk";
     this->numTel="118712-3615-36656565";
-}*/
+}
 
 ECompte::ECompte(string mail, string num): Compte(id, solde)
 {
@@ -122,30 +122,46 @@ void ECompte::Cloturer(const int *today)
 }
 
 
-/*void ECompte::CalculInterets(const int *today)
+void ECompte::CalculInterets(const int *today)
 {
-    double tauxInteret=0.045, tauxInteretNormal=0.015; //    tauxInteret=4.5% pendant 3 mois et tauxInteretNormal= taux annuel de 1.5%
+    double tauxInteret3Mois=0.045, tauxInteretNormal=0.015; //    tauxInteret=4.5% pendant 3 mois et tauxInteretNormal= taux annuel de 1.5%
+    double interets=0;
 
-    int anneeCreation, anneeEnCours,moisCreation,moisActuel;
+    int anneeCreation, anneeEnCours,moisCreation,moisEnCours;
     anneeCreation=this->DateOuverture.annee;
     anneeEnCours=today[2];
     moisCreation=this->DateOuverture.mois;
-    moisActuel=today=[2];
+    moisEnCours=today[2];
 
-    if((anneeEnCours==anneeCreation)&&(anneeEnCours + 1) < (anneeCreation +2))
+    int i=0,limit;
+
+    while(anneeCreation<=anneeEnCours)
     {
-        this->solde = this->solde * txinteret;
+    	if (anneeCreation == anneeEnCours)
+        {
+            limit = moisEnCours;
+        }
+    	else
+        {
+            limit = 12;
+        }
+
+        while(moisCreation<=limit)
+        {
+            if(i<24)
+            {
+                if(i<3)
+                {
+                    interets=interets+this->solde*(tauxInteret3Mois/12);
+                }
+                else
+                    interets=interets+this->solde*(tauxInteretNormal/12);
+                i++;
+                moisCreation++;
+            }
+        }
+        anneeCreation++;
+        moisCreation = 1;
     }
-    else if(anneeEnCours>anneeCreation)
-    {
-        this->solde=this->solde*(1+tauxInteretNormal);
-    }
-    else if((anneeEnCours +3) > (anneeCreation + 2) && (anneeEnCours + 3) < (anneeCreation + 4))
-    {
-        this->solde = this->solde * (txinteret * txinteret * txinteret);
-    }
-    else
-    {
-        this->solde = this->solde * (txinteret * txinteret * txinteret * txinteret);
-    }
-}*/
+    this->solde=this->solde+interets;
+}
