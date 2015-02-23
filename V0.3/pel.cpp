@@ -24,12 +24,18 @@ Pel::Pel(double tauxEmprunt, double tauxRemu, double montantMensuel, int id, int
 
 void Pel::Afficher() const
 {
-    cout<<"*** PEL ***\n";
-    Compte::Afficher();
-	cout << "Taux de rémunération: " << tauxRemu << " %." << endl;
-	cout << "Taux d'emprunt (après 4ans): " << tauxEmprunt << " %." << endl;
-	cout << "Montant du versement mensuel: " << montantMensuel << " €." << endl;
-
+	if (isOpen)
+	{	
+		cout<<"*** PEL ***\n";
+		Compte::Afficher();
+		cout << "Taux de rémunération: " << tauxRemu << " %." << endl;
+		cout << "Taux d'emprunt (après 4ans): " << tauxEmprunt << " %." << endl;
+		cout << "Montant du versement mensuel: " << montantMensuel << " €." << endl;
+	}
+	else
+	{
+		cout << "Ce compte est fermé, impossible d'y accéder." << endl;
+	}
 }
 
 double Pel::Consulter()
@@ -220,18 +226,18 @@ void Pel::TempsRestantAvantEmprunt(const int *today)
 		resDiff = Compte::CalculIntervalle(today, date_compte, resJ, resM, resA);
 
 		// d abord la plus petite valeur: moins d un jour
-	    if(resDiff == 1)
-	    {
-	        cout << "Il reste moins d un jour avant que vous puissiez emprunter." << endl;
-	    }
-	    else if(resDiff == 2) // il reste moins d un an, donc mois et jours:
-	    {
-	        cout << "Il reste " << resM << " mois et " << resJ << " jours avant un possible emprunt." << endl;
-	    }
-	    else // il reste au moins un an, donc an, mois et jours
-	    {
-	        cout << "Il reste " << resA << " annees, " << resM << " mois et " << resJ << " jours avant un possible emprunt." << endl;
-	    }
+		if(resDiff == 1)
+		{
+			cout << "Il reste moins d un jour avant que vous puissiez emprunter." << endl;
+		}
+		else if(resDiff == 2) // il reste moins d un an, donc mois et jours:
+		{
+			cout << "Il reste " << resM << " mois et " << resJ << " jours avant un possible emprunt." << endl;
+		}
+		else // il reste au moins un an, donc an, mois et jours
+		{
+			cout << "Il reste " << resA << " annees, " << resM << " mois et " << resJ << " jours avant un possible emprunt." << endl;
+		}
 	}
 	else
 	{
