@@ -5,14 +5,24 @@
 int MenuECompte(ECompte &CompteLambda)
 {
     int choix;
-    cout<<"\nBienvenue dans l'E-Compte\n");
 
     do
     {
-        cout<<"\nQue voulez-vous faire ?\n";
-        cout<<"1-Afficher les donnees du compte\n2-Deposer de l'argent sur le compte\n";
-        cout<<"3-Retirer de l'argent sur le compte\n4-Modifier les coordonees du compte";
-        cout<<"0-Retour au menu precedent\n";
+        cout << "╔══════════════════════════════════════════════════════╗" << endl;;
+        cout << "║              Gestion E-Compte                        ║" <<endl;;
+        cout << "╠══════════════════════════════════════════════════════╣" << endl;
+        cout << "║ "; Afficher_Today(today) ; cout <<"                  ║ " << endl;
+        cout << "╟──────────────────────────────────────────────────────╢" << endl;
+        cout << "║ Que voulez vous faire?                               ║ " << endl;
+        cout << "║ 1. Afficher le compte                                ║ " << endl;
+        cout << "║ 2. Ajouter de l'argent.                              ║ " << endl;
+        cout << "║ 3. Retirer de l'argent.                              ║ " << endl;
+        cout << "║ 4. Modifier les coordonnees.                         ║ " << endl;
+        cout << "╟──────────────────────────────────────────────────────╢" << endl;
+        cout << "║ 0. Retour au menu principal.                         ║ " << endl;
+        cout << "╚══════════════════════════════════════════════════════╝" << endl;
+
+        cout<<"\nVotre choix:";
         cin>>choix;
 
         switch(choix)
@@ -29,12 +39,12 @@ int MenuECompte(ECompte &CompteLambda)
             case 4: CompteLambda.ChangerCoordonnes();
                     break;
 
-            case 0: return 1;
+            case 0: return;
                     break;
 
             default : cout<<"Ce choix n'est pas valide !\n";
                       break;
         }
     }
-    while(1);
+    while(!=0);
 }
