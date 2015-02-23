@@ -20,7 +20,7 @@ public:
     ~CompteBloque() {};
 
     void Afficher();
-    void TempsRestant(const int *today);
+    void TempsRestant(const int *today, const int *date, int &resJours, int &resMois, int &resAns);
     void CalculInterets(const int *today);
     void TempsOuvert(const int *today);
 };
