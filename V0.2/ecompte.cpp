@@ -101,6 +101,27 @@ void ECompte::Afficher()
 
 void ECompte::Cloturer(const int *today)
 {
+    int today[3]; // today est un tableau de 3 entiers représentant la date du jour: today[0] est le jour, today[1] est le mois, today[2] est l'année
+    int date_compte[3]; // la meme chose qu'au dessus mais pour la date d'ouverture du compte
+
+    date_compte[0]=this->DateOuverture.jour;
+    date_compte[1]=this->DateOuverture.mois;
+    date_compte[2]=this->DateOuverture.annee;
+
+    if(today[2]>=(date_compte[2]+2))        // Si le compte est ouvert depuis 2 ans il se cloture automatiquement
+        if(today[1]>=date_compte[1])
+            if(today[0]>=date_compte[0])
+                Compte::Cloturer();
+
+    if(isOpen)      // Petit if pour regler un cas particulier
+    {
+        if(today[2]>(date_compte[2]+2))
+        Compte::Cloturer();
+    }
+}
+
+void ECompte::Cloturer(const int *today)
+{
     int date_today[3]; // date_today est un tableau de 3 entiers représentant la date du jour: date_today[0] est le jour, date_today[1] est le mois, date_today[2] est l'année
     int date_compte[3]; // la meme chose qu'au dessus mais pour la date d'ouverture du compte
 
