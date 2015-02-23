@@ -77,7 +77,7 @@ void CompteBloque::TempsRestant(const int *today)
         int months = (int) diff/108000;
         int restemonths = (int) diff % 108000;
         int days = (int) restemonths / 3600;
-        int restedays = (int) diff%86400;
+        // int restedays = (int) diff%86400;
         cout << "Il reste: " << months << " mois et " << days << " jours avant le debloquage." << endl;
     }
     else // il reste au moins un an, donc an, mois et jours
@@ -99,23 +99,23 @@ void CompteBloque::CalculInterets(const int *today)
 
     if((anneeactuel +1) > anneecreation && (anneeactuel + 1) < (anneecreation +2))
     {
-        Compte.solde = Compte.solde * txinteret;
+        this->solde = this->solde * txinteret;
     }
-    else if((anneeactuel +2) > (anneecreation +1) && (anneeactuel +2) < (anneecreation +3)
+    else if((anneeactuel +2) > (anneecreation +1) && (anneeactuel +2) < (anneecreation +3))
     {
-        Compte.solde = Compte.solde * (txinteret * txinteret);
+        this->solde = this->solde * (txinteret * txinteret);
     }
     else if((anneeactuel +3) > (anneecreation + 2) && (anneeactuel + 3) < (anneecreation + 4))
     {
-        Compte.solde = Compte.solde * (txinteret * txinteret * txinteret);
+        this->solde = this->solde * (txinteret * txinteret * txinteret);
     }
     else
     {
-        Compte.solde = Compte.solde * (txinteret * txinteret * txinteret * txinteret);
+        this->solde = this->solde * (txinteret * txinteret * txinteret * txinteret);
     }
 }
 
-void TempsOuvert(const int *today)
+void CompteBloque::TempsOuvert(const int *today)
 {
     int j, m, a, ja, ma, aa; // j, m, a sont les variables de la date actuelle, ja, ma, aa de la date de creation du compte
     double diff; // detient la difference en secondes des deux dates
@@ -175,7 +175,7 @@ void TempsOuvert(const int *today)
         int months = (int) diff/108000;
         int restemonths = (int) diff % 108000;
         int days = (int) restemonths / 3600;
-        int restedays = (int) diff%86400;
+        // int restedays = (int) diff%86400;
         cout << "Le compte est ouvert depuis " << months << " mois et " << days << " jours." << endl;
     }
     else // il reste au moins un an, donc an, mois et jours
