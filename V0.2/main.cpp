@@ -16,14 +16,17 @@ void Ajouter_An(int *today, int nb_an_ajoute);
 
 int main()
 {
+	time_t today = time(NULL);
+	tm* todayTm  = localtime(&today);
 	int date_today[3]; // date_today est un tableau de 3 entiers représentant la date du jour: date_today[0] est le jour, date_today[1] est le mois, date_today[2] est l'année
 	// Volontairement, je ne fais pas de fonction Bon dans le temps, il suffira de rajouter le temps voulu aux moments données dans l'application. Ceci explique mon choix d'un tableau d'entier.
+	date_today[0] = todayTm->tm_mday;
+	date_today[1] = todayTm->tm_mon + 1;
+	date_today[2] = todayTm->tm_year + 1900;
+	Afficher_Today(date_today);
 	cout << "Saisie du compte:" << endl;
 	CompteBloque C1(2.5, 0);
-	cout << "Saisie de la date d'aujourd'hui:" << endl;
-	Saisir_Today(date_today);
-	Afficher_Today(date_today);
-	cout << "Calcul du teps restant:" << endl;
+	cout << "Calcul du temps restant:" << endl;
 	C1.TempsRestant(date_today);
 	C1.Saisir();
 	C1.CalculInterets(date_today);
