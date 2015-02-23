@@ -1,3 +1,7 @@
+/**
+* @author Sofian HAMADACHE
+**/
+
 #include "ecompte.h"
 
 ECompte::ECompte()

@@ -1,3 +1,7 @@
+/**
+* @author Sofian HAMADACHE
+**/
+
 #include "compte.h"
 
 #ifndef ECOMPTE_H
