@@ -1,4 +1,4 @@
-int MenuLivret(Livret &unLivret)
+void MenuLivret(Livret &unLivret)
 {
     int choix;
     cout<<"1. Ajouter de l'argent à votre compte épargne"<<endl<<"2. Calcul de vos intérêts sur l'année"<<endl;
