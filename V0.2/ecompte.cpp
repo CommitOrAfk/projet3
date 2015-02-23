@@ -94,3 +94,52 @@ void ECompte::Afficher()
         cout<<"Numero de telephone : "<<numTel<<endl;
     }
 }
+
+void ECompte::Cloturer(const int *today)
+{
+    int date_today[3]; // date_today est un tableau de 3 entiers représentant la date du jour: date_today[0] est le jour, date_today[1] est le mois, date_today[2] est l'année
+    int date_compte[3]; // la meme chose qu'au dessus mais pour la date d'ouverture du compte
+
+    date_compte[0]=this->DateOuverture.jour;
+    date_compte[1]=this->DateOuverture.mois;
+    date_compte[2]=this->DateOuverture.annee;
+
+    if(date_today[2]>=(date_compte[2]+2))        // Si le compte est ouvert depuis 2 ans il se cloture automatiquement
+        if(date_today[1]>=date_compte[1])
+            if(date_today[0]>=date_compte[0])
+                Compte::Cloturer();
+
+    if(isOpen)      // Petit if pour regler un cas particulier
+    {
+        if(date_today[2]>(date_compte[2]+2))
+        Compte::Cloturer();
+    }
+}
+
+/*void ECompte::CalculInterets(const int *today)
+{
+    double tauxInteret=0.045, tauxInteretNormal=0.015; //    tauxInteret=4.5% pendant 3 mois et tauxInteretNormal= taux annuel de 1.5%
+
+    int anneeCreation, anneeEnCours,moisCreation,moisActuel;
+    anneeCreation=this->DateOuverture.annee;
+    anneeEnCours=today[2];
+    moisCreation=this->DateOuverture.mois;
+    moisActuel=today=[2];
+
+    if((anneeEnCours==anneeCreation)&&(anneeEnCours + 1) < (anneeCreation +2))
+    {
+        this->solde = this->solde * txinteret;
+    }
+    else if(anneeEnCours>anneeCreation)
+    {
+        this->solde=this->solde*(1+tauxInteretNormal);
+    }
+    else if((anneeEnCours +3) > (anneeCreation + 2) && (anneeEnCours + 3) < (anneeCreation + 4))
+    {
+        this->solde = this->solde * (txinteret * txinteret * txinteret);
+    }
+    else
+    {
+        this->solde = this->solde * (txinteret * txinteret * txinteret * txinteret);
+    }
+}*/

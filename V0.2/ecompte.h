@@ -17,6 +17,8 @@ class ECompte: public Compte
         void Retrait();
         void ChangerCoordonnes();
         void Afficher();
+        void Cloturer(const int *today);
+        //void CalculInterets(const int *today);
 };
 
 #endif // ECOMPTE_H
