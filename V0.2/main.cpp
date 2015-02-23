@@ -1,4 +1,4 @@
-/** main.cpp juste pour tester
+﻿/** main.cpp juste pour tester
 test date uniquement pour l'instant
 **/
 #include "date.h"
@@ -132,3 +132,13 @@ void Ajouter_An(int *today, int nb_an_ajoute)
 {
     today[2] = today[2] + nb_an_ajoute;
 }
+
+void VerifierChoix(int petit, int grand, int chiffre_a_comparer)
+{
+    while(chiffre_a_comparer<petit || chiffre_a_comparer>grand)
+    {
+        cout<<"Erreur ! Entrer un chiffre entre "<<petit<<" et "<<grand <<" : ";
+        cin>>chiffre_a_comparer;
+    }
+}
+
