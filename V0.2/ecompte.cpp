@@ -101,7 +101,6 @@ void ECompte::Afficher()
 
 void ECompte::Cloturer(const int *today)
 {
-    int today[3]; // today est un tableau de 3 entiers représentant la date du jour: today[0] est le jour, today[1] est le mois, today[2] est l'année
     int date_compte[3]; // la meme chose qu'au dessus mais pour la date d'ouverture du compte
 
     date_compte[0]=this->DateOuverture.jour;
