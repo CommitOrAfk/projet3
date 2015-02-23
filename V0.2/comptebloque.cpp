@@ -12,8 +12,8 @@ CompteBloque::CompteBloque(double tx, double versements)
 
 void CompteBloque::Afficher()
 {
-    cout << "Taux interet: " << setprecision(2) << txinteret << endl;
-    cout << "Montant des versements par mois: " << setprecision(2) << versements <<endl;
+    cout << "║ Taux interet: " << setprecision(2) << txinteret << "                                    ║" << endl;
+    cout << "║ Montant des versements par mois: " << setprecision(2) <<versements<< "                  ║" << endl;
     Compte::Afficher();
 }
 
