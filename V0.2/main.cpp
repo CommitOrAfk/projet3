@@ -16,25 +16,17 @@ void Ajouter_An(int *today, int nb_an_ajoute);
 
 int main()
 {
+	int date_today[3]; // date_today est un tableau de 3 entiers représentant la date du jour: date_today[0] est le jour, date_today[1] est le mois, date_today[2] est l'année
+	// Volontairement, je ne fais pas de fonction Bon dans le temps, il suffira de rajouter le temps voulu aux moments données dans l'application. Ceci explique mon choix d'un tableau d'entier.
+	cout << "Saisie du compte:" << endl;
+	CompteBloque C1(2.5, 0);
+	cout << "Saisie de la date d'aujourd'hui:" << endl;
+	Saisir_Today(date_today);
+	Afficher_Today(date_today);
+	cout << "Calcul du teps restant:" << endl;
+	C1.TempsRestant(date_today);
 
-int date_today[3]; // date_today est un tableau de 3 entiers représentant la date du jour: date_today[0] est le jour, date_today[1] est le mois, date_today[2] est l'année
-int date_compte[3];
-int resJ, resM, resA; // vont stocker respectivement une différence entre 2 dates en Jours, Mois et Années
-// Volontairement, je ne fais pas de fonction Bon dans le temps, il suffira de rajouter le temps voulu aux moments données dans l'application. Ceci explique mon choix d'un tableau d'entier.
-
-CompteBloque C1(2.5, 0);
-date_compte[0] = C1.Compte::getjour();
-date_compte[1] = C1.Compte::getmois();
-date_compte[2] = C1.Compte::getannee() + 4; // 4 ans de blocage dans le cas du CompteBloque
-
-Saisir_Today(date_today);
-Afficher_Today(date_today);
-
-C1.TempsRestant(date_today, date_compte, resJ, resM, resA);
-
-cout << resJ << " jours " << resM << " mois " << resA << " années.\n";
-
-return 0;
+	return 0;
 }
 
 //Saisie de la date d'aujourd'hui

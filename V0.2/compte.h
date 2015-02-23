@@ -28,6 +28,7 @@ public:
     virtual double Consulter();
     virtual void Cloturer();
     virtual bool EstOuvert();
+    int CalculIntervalle(const int *today, const int *date, int &resJours, int &resMois, int &resAns);
     int getjour();
     int getmois();
     int getannee();
