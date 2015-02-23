@@ -14,15 +14,15 @@ class ECompte: public Compte
         string numTel;  // le numero de telephone du client
     public:
         // constructeurs/destructeur
-        //ECompte();
-        ECompte(string mail = "", string num="");
+        ECompte();
+        ECompte(string mail, string num="0553455445");
         // fonctions membres
         void Ajouter();
         void Retrait();
         void ChangerCoordonnes();
         void Afficher() const;
         void Cloturer(const int *today);
-        //void CalculInterets(const int *today);
+        void CalculInterets(const int *today);
 };
 
 #endif // ECOMPTE_H
