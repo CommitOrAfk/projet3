@@ -4,8 +4,13 @@
 Livret::Livret(): Compte(id, solde)
 {
     this->taux_remuneration = 0.0125;
-    this->plafond = 22000;
+    this->plafond = 22950;
     this->isOpen=true;
+	 while(solde>plafond)
+    {
+        cout<<"Le solde du livret doit être inférieur à "<<plafond<<endl;
+        cin>>solde;
+    }
 }
 
 
