@@ -1,5 +1,6 @@
 # Variables
 EXEC = gestion
+ARCH = projet4_groupe_alexander.tar.gz
 # Il y a bien un -std= pour g++, mais la norme n'est pas c11 mais c++11!
 # Ce qui donne tout son sens au -pedantic, Mea Culpa (Théo).
 ARGS = -std=c++11 -Wall -Wextra -pedantic
