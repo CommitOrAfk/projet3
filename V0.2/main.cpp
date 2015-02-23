@@ -25,7 +25,10 @@ int main()
 	Afficher_Today(date_today);
 	cout << "Calcul du teps restant:" << endl;
 	C1.TempsRestant(date_today);
-
+	C1.Saisir();
+	C1.CalculInterets(date_today);
+	C1.Afficher();
+	C1.TempsOuvert(date_today);
 	return 0;
 }
 
