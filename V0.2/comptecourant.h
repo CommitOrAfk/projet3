@@ -1,8 +1,13 @@
+/**
+Par Pierre
+**/
+
 #include "compte.h"
 #include <vector>
 #include <cstring>
 #include <fstream>
 #include <limits>
+#include <iomanip>
 
 
 using namespace std;

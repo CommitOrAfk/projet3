@@ -23,8 +23,8 @@ void CompteCourant::Afficher()
     Compte::Afficher();
     if(solde <0)
     {
-        cout << "Decouvert: " << setprecision(1) << this->decouvert << endl;
-        cout << "Aggio: " << setprecision(1) << this->aggio << endl;
+        cout << "Decouvert: " << setprecision(2) << this->decouvert << endl;
+        cout << "Aggio: " << setprecision(2) << this->aggio << endl;
     }
 }
 
@@ -54,8 +54,14 @@ bool CompteCourant::EstOuvert()
 void CompteCourant::AjouterArgent(const int *today)
 {
     double ajout;
-    cout<<"Quelle somme souhaitez-vous ajouter au solde:";
-    cin>>ajout;
+    do{
+        cout<<"Quelle somme souhaitez-vous ajouter au solde:";
+        cin>>ajout;
+        if(ajout <0)
+        {
+            cout<<"\nValeur negtive, saisissez une valeur positive\n";
+        }
+    }while(ajout < 0);
     solde = solde + ajout;
     ImprimerAction("Ajout", ajout, today);
 
@@ -82,8 +88,14 @@ void CompteCourant::AjouterArgent(const int *today)
 void CompteCourant::RetirerArgent(const int *today)
 {
     double retrait;
-    cout<<"Quelle somme souhaitez-vous retirer au solde:";
-    cin>>retrait;
+    do{
+        cout<<"Quelle somme souhaitez-vous retirer au solde:";
+        cin>>retrait;
+        if(retrait < 0)
+        {
+            cout<<"\nValeur negtive, saisissez une valeur positive\n";
+        }
+    }while(retrait < 0);
     solde = solde - retrait;
 
     if(solde < 0)
