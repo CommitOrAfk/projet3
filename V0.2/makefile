@@ -2,7 +2,7 @@
 EXEC = gestion
 ARGS = -Wall -Wextra -pedantic
 
-EXEC: date.o client.o compte.o test.o ecompte.o comptebloque.o main.cpp
+EXEC: date.o client.o compte.o test.o ecompte.o comptebloque.o pel.o main.cpp
 	g++ $(ARGS) $^ -o $(EXEC)
 	
 date.o: date.cpp date.h
@@ -21,6 +21,9 @@ comptebloque.o: comptebloque.cpp comptebloque.h compte.o
 	g++ $(ARGS) -c $*.cpp
 
 ecompte.o: ecompte.cpp ecompte.h compte.o
+	g++ $(ARGS) -c $*.cpp
+
+pel.o: pel.cpp pel.h compte.o
 	g++ $(ARGS) -c $*.cpp
 
 clean:
