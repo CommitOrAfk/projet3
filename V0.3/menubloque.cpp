@@ -105,6 +105,7 @@ void MenuCompteBloque(CompteBloque &CB)
                     cout << "║ Temps que le compte est bloque:                      ║ " << endl;
                     cout << "╚══════════════════════════════════════════════════════╝" << endl;
                     CB.TempsOuvert(date_today);
+                break;
 
             case 5:
                     cout << "╔══════════════════════════════════════════════════════╗" << endl;;
@@ -113,6 +114,7 @@ void MenuCompteBloque(CompteBloque &CB)
                     cout << "║ "; Afficher_Today(date_today) ; cout <<"                              ║ " << endl;
                     cout << "╚══════════════════════════════════════════════════════╝" << endl;
                     Saisir_Today(date_today);
+                break;
     }
 }
 
